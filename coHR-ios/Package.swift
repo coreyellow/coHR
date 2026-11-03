@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "coHR-ios",
+    name: "coHR",
     platforms: [
         .iOS(.v17),
         .macOS(.v14),
@@ -12,13 +12,13 @@ let package = Package(
         // An xtool project should contain exactly one library product,
         // representing the main app.
         .library(
-            name: "coHR_ios",
-            targets: ["coHR_ios"]
+            name: "coHR",
+            targets: ["coHR"]
         ),
     ],
     targets: [
         .target(
-            name: "coHR_ios"
+            name: "coHR"
         ),
     ]
 )

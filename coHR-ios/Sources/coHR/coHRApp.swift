@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct coHR_iosApp: App {
+struct coHRApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
