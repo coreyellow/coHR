@@ -5,22 +5,27 @@ struct ContentView: View {
     @StateObject private var healthManager = HealthManager()
 
     var body: some View {
-        VStack(spacing: 20) {
-            Image(systemName: "heart.fill")
-                .imageScale(.large)
-                .foregroundStyle(.orange)
+        VStack {
+            HStack(spacing: 20) {
+                Image(systemName: "heart.fill")
+                    .imageScale(.large)
+                    .foregroundStyle(.orange)
 
-            Text(healthManager.status)
-                .multilineTextAlignment(.center)
+                Text(healthManager.status)
+                    .multilineTextAlignment(.leading)
 
-            if healthManager.canRequestAuthorization {
-                Button("Connect Health") {
-                    healthManager.requestAuthorization()
+                if healthManager.canRequestAuthorization {
+                    Button("Connect Health") {
+                        healthManager.requestAuthorization()
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.top)
     }
 }
 
