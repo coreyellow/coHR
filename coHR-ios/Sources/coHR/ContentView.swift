@@ -45,23 +45,23 @@ private final class HealthManager: ObservableObject {
         if let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate) {
             switch healthStore.authorizationStatus(for: heartRate) {
             case .sharingAuthorized:
-                status = "HealthKit is connected."
+                status = "Connected"
             case .sharingDenied:
-                status = "HealthKit access is denied. Enable it in Settings."
+                status = "Health Sharing is Denied. Enable it in Settings."
             case .notDetermined:
-                status = "HealthKit is ready to connect."
+                status = "Ready to Connect"
                 canRequestAuthorization = true
             @unknown default:
-                status = "HealthKit authorization status is unknown."
+                status = "Status is Unknown."
             }
         } else {
-            status = "The heart rate type is unavailable."
+            status = "Unavailable"
         }
     }
 
     func requestAuthorization() {
         guard let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate) else {
-            status = "The heart rate type is unavailable."
+            status = "Unavailable"
             return
         }
 
@@ -72,7 +72,7 @@ private final class HealthManager: ObservableObject {
                     read: [heartRate]
                 )
                 canRequestAuthorization = false
-                status = "HealthKit connection request complete."
+                status = "Connected"
             } catch {
                 status = "Could not connect to HealthKit: \(error.localizedDescription)"
             }
