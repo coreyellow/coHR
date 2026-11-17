@@ -1,4 +1,4 @@
-# coHR
+# coHR (abandoned)
 An iPhone App and Windows App to track heart rate in real time
 
 ## Dev Help (for Windows Users)
